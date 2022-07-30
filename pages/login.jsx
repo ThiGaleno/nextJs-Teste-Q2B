@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SubmitButton from '../src/components/submitButton'
 
-const Login = () => {
+const LoginPage = () => {
   const [isPending, setIsPending] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -27,7 +27,7 @@ const Login = () => {
             <label htmlFor="password">Senha</label>
             <input onChange={e => setFormData({ ...formData, password: e.target.value })} required placeholder="Senha" type="password" id="password" />
           </div>
-          <div className="flex w-full justify-right">
+          <div className="flex w-full justify-end">
             <SubmitButton
               isPending={isPending}
               text="Entrar"
@@ -39,4 +39,4 @@ const Login = () => {
     </div>
   );
 }
-export default Login
+export default LoginPage
