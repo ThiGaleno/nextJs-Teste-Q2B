@@ -1,0 +1,46 @@
+{
+  "clients": [
+    {
+      "name": "Guilherme ",
+      "document": "904.289.970-07",
+      "email": "teste@gmail.com",
+      "bank": {
+        "bankName": "237 - Banco Bradesco S.A.",
+        "code": "237",
+        "agency": "0001",
+        "account": "1167115-2"
+      },
+      "id": 1
+    },
+    {
+      "name": "Dimitry Q2Pay",
+      "document": "025.666.670-981",
+      "email": "teste@gmail.comS",
+      "bank": {
+        "bankName": "033 - Banco Santander Brasil S.A. S",
+        "code": "033 3",
+        "agency": "36341",
+        "account": "35934064-0 1"
+      },
+      "id": 2
+    },
+    {
+      "name": "Juan Q2Pay DB asdf",
+      "document": "092.607.860-70",
+      "email": "teste@gmail.com",
+      "bank": {
+        "bankName": "001 - Banco do Brasil S.A.",
+        "code": "001",
+        "agency": "2086",
+        "account": "24206-3"
+      },
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "username": "Lady Geek",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikd1aWxoZXJtZSBRMlBheSIsImVtYWlsIjoicTJwYXlAcTJwYXkuY29tLmJyIiwiaWF0IjoxNTE2MjM5MDIyfQ.oeSQVqs557aaURcIU9v7MgJVKLwsr6fenZ4EUSd1ZPo"
+    }
+  ]
+}

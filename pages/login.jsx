@@ -1,42 +1,80 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import SubmitButton from '../src/components/submitButton'
+import { Axios } from '../services/axios';
+import Router, { useRouter } from "next/router";
+import { useAuth } from "../hooks/useAuth";
 
-const Login = () => {
+const LoginPage = () => {
+  const { setAuth, isLoggedIn } = useAuth();
+
+  const [isLogged, setIsLogged] = useState(undefined);
   const [isPending, setIsPending] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   })
+
+  const verifyLogin = () => {
+    const email = process.env.NEXT_PUBLIC_EMAIL;
+    const password = process.env.NEXT_PUBLIC_PASSWORD;
+    if (formData.email === email && formData.password === password) {
+      return true
+    }
+    return false
+  }
+
   const handleLogin = (e) => {
     e.preventDefault();
     setIsPending(true);
-  }
 
+    Axios.get('/users')
+      .then(response => {
+        const user = response.data.find(user => verifyLogin())
+        if (verifyLogin(user)) {
+          if (response.status === 200) {
+            setAuth(user.username, user.token);
+          }
+        } else {
+          alert("Login ou senha nao encontrados");
+          setIsPending(false);
+        }
+      })
+  }
+  useLayoutEffect(() => {
+    // setIsLogged(isLoggedIn());
+    if (isLoggedIn()) {
+      Router.push("/users");
+    }
+  }, [isLoggedIn, setIsLogged]);
   return (
-    <div className="flex h-screen justify-center items-center">
-      <div className="md:hidden h-screen w-full bg-red">
-        <h1>Login</h1>
-      </div>
-      <div className="wrapper ">
-        <form className="w-350" onSubmit={handleLogin}>
-          <div className="my-10">
-            <label htmlFor="email">E-mail</label>
-            <input onChange={e => setFormData({ ...formData, email: e.target.value })} required placeholder="E-mail" type="email" id="email" />
+    <>
+      {isLogged === false &&
+        <div className="flex h-screen justify-center items-center">
+          <div className="md:hidden h-screen w-full bg-red">
+            <h1>Login</h1>
           </div>
-          <div className="my-10">
-            <label htmlFor="password">Senha</label>
-            <input onChange={e => setFormData({ ...formData, password: e.target.value })} required placeholder="Senha" type="password" id="password" />
+          <div className="wrapper ">
+            <form className="w-350" onSubmit={handleLogin}>
+              <div className="my-10">
+                <label htmlFor="email">E-mail</label>
+                <input onChange={e => setFormData({ ...formData, email: e.target.value })} required placeholder="E-mail" type="email" id="email" />
+              </div>
+              <div className="my-10">
+                <label htmlFor="password">Senha</label>
+                <input onChange={e => setFormData({ ...formData, password: e.target.value })} required placeholder="Senha" type="password" id="password" />
+              </div>
+              <div className="flex w-full justify-end">
+                <SubmitButton
+                  isPending={isPending}
+                  text="Entrar"
+                  pendingText="Carregando..."
+                />
+              </div>
+            </form>
           </div>
-          <div className="flex w-full justify-right">
-            <SubmitButton
-              isPending={isPending}
-              text="Entrar"
-              pendingText="Carregando..."
-            />
-          </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      }
+    </>
   );
 }
-export default Login
+export default LoginPage

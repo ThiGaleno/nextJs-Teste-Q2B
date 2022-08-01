@@ -5,7 +5,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+h1 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #444;
+  text-align: center;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -13,6 +18,15 @@ a {
 
 * {
   box-sizing: border-box;
+}
+ul{
+  padding-inline-start: 0px;
+}
+li{
+  list-style: none; 
+}
+p{
+  margin: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,15 +39,36 @@ a {
   }
 }
 
+
 /* primary -- f3005d */
+.text-primary {
+  color: #f3005d;
+}
+a{
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+  color: #444;
+}
+a:hover{
+  margin-bottom: 0px;
+  color: #f3005d;
+  border-bottom: 2px solid #f3005d;
+  cursor: pointer;
+}
 .bg-red{
   background-color: #f3005d;
 }
 .flex{
   display: flex;
 }
+.flex-col{
+  flex-direction: column;
+}
 .justify-center{
   justify-content: center;
+}
+.justify-between{
+  justify-content: space-between;
 }
 .items-center{
   align-items: center;
@@ -53,15 +88,48 @@ a {
 .w-350 {
   width: 350px;
 }
+.w-600 {
+  width: 600px;
+}
 .wrapper{
   padding: 32px;
 }
 .my-10{
   margin: 10px 0;
 }
-.justify-right{
-  justify-content: flex-end;
+.py-5{
+  padding: 5px 0;
 }
+.p-24{
+  padding: 24px;
+}
+.px-20{
+  padding: 0 20px;
+}
+.justify-end{
+  justify-content: end;
+}
+.border-b{
+  border-bottom: 1px solid #e0e0e0;
+}
+.border-t{
+  border-top: 1px solid #e0e0e0;
+}
+.rounded-full{
+  border-radius: 50%;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.img-rounded {
+  border: 1px solid #f0f0f0 !important;
+  border-radius: 50% !important;
+}
+.hover\:bg-item:hover{
+  background-color: #f0f0f0;
+  transition: background-color 0.2s ease-in-out;
+}
+
 /* prefixo md: */
 @media (max-width: 776px) {
   .md\:w-full{
@@ -79,8 +147,14 @@ a {
   .sm\:w-full{
     width: 100%;
   }
+  .sm\:w-600{
+    width: 600px;
+  }
   .sm\:hidden{
     display: none;
+  }
+  .sm\:justify-center{
+    justify-content: center;
   }
   .wrapper{
     padding: 4px;
@@ -118,10 +192,23 @@ label{
   align-items: center;
   gap: 4px;
   min-width: 160px;
+  max-width: 350px;
 }
 .btn-primary:hover{
   filter: brightness(90%);
 }
 .btn-primary:disabled{
   background-color: #fd909e;
+}
+.title-text{
+  font-size: 24px;
+  /* font-weight: bold; */
+  color: #444;
+}
+.subtitle-text{
+  font-size: 16px;
+  color: #888;
+}
+.bold{
+  font-weight: bold;
 }
