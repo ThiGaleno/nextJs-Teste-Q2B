@@ -15,7 +15,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
+svg{
+  margin-top: 1px;
+}
 * {
   box-sizing: border-box;
 }
@@ -48,6 +50,9 @@ a{
   padding-bottom: 2px;
   margin-bottom: 2px;
   color: #444;
+}
+.text-sm{
+  font-size: 22px;
 }
 a:hover{
   margin-bottom: 0px;
@@ -200,6 +205,30 @@ label{
 .btn-primary:disabled{
   background-color: #fd909e;
 }
+.btn-ghost{
+  padding-top: 20px;
+}
+.btn-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:  transparent;
+  border: transparent;
+  padding: 4px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #444;
+}
+.btn-pagination:hover:not(.btn-pagination:disabled){
+  background-color: #eee;
+}
+.btn-pagination:disabled{
+  color: #777;
+  cursor: default;
+  stroke: #eee;
+}
+
+
 .title-text{
   font-size: 24px;
   /* font-weight: bold; */
@@ -211,4 +240,7 @@ label{
 }
 .bold{
   font-weight: bold;
+}
+.rotate-180{
+  transform: rotate(180deg);
 }

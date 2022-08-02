@@ -41,9 +41,10 @@ const LoginPage = () => {
       })
   }
   useLayoutEffect(() => {
-    // setIsLogged(isLoggedIn());
     if (isLoggedIn()) {
       Router.push("/users");
+    } else {
+      setIsLogged(false)
     }
   }, [isLoggedIn, setIsLogged]);
   return (
@@ -63,12 +64,17 @@ const LoginPage = () => {
                 <label htmlFor="password">Senha</label>
                 <input onChange={e => setFormData({ ...formData, password: e.target.value })} required placeholder="Senha" type="password" id="password" />
               </div>
-              <div className="flex w-full justify-end">
+              <div className="flex w-full justify-end flex-col">
                 <SubmitButton
                   isPending={isPending}
                   text="Entrar"
                   pendingText="Carregando..."
                 />
+                <div className="flex justify-center">
+                  <a href="#" className=" btn-ghost">
+                    Não possuo uma conta
+                  </a>
+                </div>
               </div>
             </form>
           </div>
