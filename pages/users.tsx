@@ -56,11 +56,11 @@ const UsersPage = () => {
     }
   }
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center  wrapper'>
       {isLogged &&
         <>
           <h1>Clientes</h1>
-          <div className='flex items-center justify-end w-full'>
+          <div className='flex items-center justify-center w-full'>
             <button title='Página anterior' disabled={currentPage === 0} className='btn-pagination' onClick={previousPage}>
               <i> {chevronLeft} </i>
             </button>

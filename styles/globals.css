@@ -63,6 +63,9 @@ a:hover{
 .bg-red{
   background-color: #f3005d;
 }
+.hidden{
+  display: none;
+}
 .flex{
   display: flex;
 }
@@ -102,6 +105,9 @@ a:hover{
 .my-10{
   margin: 10px 0;
 }
+.my-20{
+  margin: 20px 0;
+}
 .py-5{
   padding: 5px 0;
 }
@@ -134,7 +140,11 @@ a:hover{
   background-color: #f0f0f0;
   transition: background-color 0.2s ease-in-out;
 }
-
+@media (min-width: 768px) {
+  .wrapper {
+    margin: 0 20%;
+  }
+}
 /* prefixo md: */
 @media (max-width: 776px) {
   .md\:w-full{
@@ -158,12 +168,19 @@ a:hover{
   .sm\:hidden{
     display: none;
   }
+  .sm\:flex{
+    display: flex;
+  }
   .sm\:justify-center{
     justify-content: center;
   }
   .wrapper{
     padding: 4px;
   }
+  .sm\:p-18{
+    padding:18px;
+  }
+
 }
 
 input{

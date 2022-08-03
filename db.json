@@ -6,7 +6,7 @@
       "email": "teste@gmail.com",
       "bank": {
         "bankName": "237 - Banco Bradesco S.A.",
-        "code": "237",
+        "code": "2376",
         "agency": "0001",
         "account": "1167115-2"
       },
@@ -49,7 +49,7 @@
       "id": 4
     },
     {
-      "name": "Juan Q2Pay DB asdf",
+      "name": "DON RUAN",
       "document": "092.607.860-70",
       "email": "teste@gmail.com",
       "bank": {

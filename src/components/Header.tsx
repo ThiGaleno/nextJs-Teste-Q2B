@@ -6,7 +6,7 @@ const Header = () => {
     const { username, logout } = useAuth();
 
     return (
-        <header className='p-24 flex justify-between'>
+        <header className='p-24 flex justify-between wrapper sm:p-18'>
             <div className='subtitle-text'>
                 <p>Seja bem vindo <strong className='text-primary'>{username || ''}</strong></p>
             </div>

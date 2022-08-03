@@ -76,9 +76,10 @@ const EditUserPage: NextPage = (): JSX.Element => {
           <form className="w-600 sm:w-full" onSubmit={updateClient}>
             <section className='flex justify-between items-center sm:justify-center border-b'>
               <div className='p-24 sm:hidden'>
-                <p>Dados pessoais</p>
+                <p className='subtitle-text'>Dados pessoais</p>
               </div>
               <div className='w-350'>
+                <p className='my-20 hidden sm:flex subtitle-text'>Dados pessoais</p>
                 <div className='my-10'>
                   <label htmlFor="name">Nome</label>
                   <input value={name} onChange={e => setName(e.target.value)} placeholder="Nome" required id="name" type="text" />
@@ -95,9 +96,10 @@ const EditUserPage: NextPage = (): JSX.Element => {
             </section>
             <section className='flex justify-between items-center sm:justify-center'>
               <div className='p-24 sm:hidden'>
-                <p>Dados bancários</p>
+                <p className='subtitle-text'>Dados bancários</p>
               </div>
               <div className='w-350'>
+              <p className='my-20 hidden sm:flex subtitle-text'>Dados Bancários</p>
                 <div className='my-10'>
                   <label htmlFor="bankName">Banco</label>
                   <input value={bankName} onChange={e => setBankName(e.target.value)} placeholder="Banco" required id="bankName" type="text" />
