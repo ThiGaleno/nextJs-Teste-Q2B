@@ -1,4 +1,5 @@
 import React from "react";
+import { Loading } from '../components/icons';
 
 const SubmitButton = ({ isPending, text, pendingText }:
   {
@@ -14,7 +15,7 @@ const SubmitButton = ({ isPending, text, pendingText }:
       type="submit"
       disabled={isPending}
     >
-      {isPending && <i>@</i>}
+      {isPending && <i>{<Loading />}</i>}
 
       {isPending ? (
         <span>{pendingText || 'Carregando'}</span>

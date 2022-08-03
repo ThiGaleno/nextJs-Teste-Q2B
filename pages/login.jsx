@@ -26,19 +26,20 @@ const LoginPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     setIsPending(true);
-
-    Axios.get('/users')
-      .then(response => {
-        const user = response.data.find(user => verifyLogin())
-        if (verifyLogin(user)) {
-          if (response.status === 200) {
-            setAuth(user.username, user.token);
+    setTimeout(() => {
+      Axios.get('/users')
+        .then(response => {
+          const user = response.data.find(user => verifyLogin())
+          if (verifyLogin(user)) {
+            if (response.status === 200) {
+              setAuth(user.username, user.token);
+            }
+          } else {
+            alert("Login ou senha nao encontrados");
+            setIsPending(false);
           }
-        } else {
-          alert("Login ou senha nao encontrados");
-          setIsPending(false);
-        }
-      })
+        })
+    } , 3000);
   }
   useLayoutEffect(() => {
     if (isLoggedIn()) {
