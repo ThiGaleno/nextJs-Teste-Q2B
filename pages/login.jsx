@@ -31,7 +31,6 @@ const LoginPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     setIsPending(true);
-    setTimeout(() => {
       Axios.get('/users')
         .then(response => {
           const user = response.data.find(user => verifyLogin())
@@ -44,7 +43,6 @@ const LoginPage = () => {
             setIsPending(false);
           }
         })
-    }, 3000);
   }
   useEffect(() => {
     if (isLoggedIn()) {

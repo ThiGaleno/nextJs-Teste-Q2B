@@ -24,24 +24,20 @@ const EditUserPage: NextPage = (): JSX.Element => {
     e.preventDefault();
     setIsPending(true);
 
-    setTimeout(() => {
-
-      Axios.put(`/clients/${id}`, {
-        name,
-        document,
-        email,
-        bank: {
-          bankName,
-          code: securityCode,
-          agency,
-          account
-        }
-      }).then(() => {
-        setIsPending(false);
-        router.push('/users')
-      })
-    }, 3000);
-
+    Axios.put(`/clients/${id}`, {
+      name,
+      document,
+      email,
+      bank: {
+        bankName,
+        code: securityCode,
+        agency,
+        account
+      }
+    }).then(() => {
+      setIsPending(false);
+      router.push('/users')
+    })
 
   }
   useEffect(() => {
@@ -99,7 +95,7 @@ const EditUserPage: NextPage = (): JSX.Element => {
                 <p className='subtitle-text'>Dados bancários</p>
               </div>
               <div className='w-350'>
-              <p className='my-20 hidden sm:flex subtitle-text'>Dados Bancários</p>
+                <p className='my-20 hidden sm:flex subtitle-text'>Dados Bancários</p>
                 <div className='my-10'>
                   <label htmlFor="bankName">Banco</label>
                   <input value={bankName} onChange={e => setBankName(e.target.value)} placeholder="Banco" required id="bankName" type="text" />
