@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { Axios } from '../services/axios'
 import { chevronLeft, chevronRight } from '../src/components/icons'
@@ -31,7 +31,7 @@ const UsersPage = () => {
 
   const currentItens = users.slice(startItens, endItens)
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setIsLogged(isLoggedIn())
     if (isLoggedIn() === false) {
       Router.push('/login')

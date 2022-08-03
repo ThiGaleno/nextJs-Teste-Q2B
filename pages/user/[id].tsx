@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Router, { useRouter } from 'next/router'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { Axios } from '../../services/axios'
 import SubmitButton from '../../src/components/submitButton'
@@ -44,7 +44,7 @@ const EditUserPage: NextPage = (): JSX.Element => {
 
 
   }
-  useLayoutEffect(() => {
+  useEffect(() => {
     setIsLogged(isLoggedIn())
     if (isLoggedIn() === false) {
       Router.push('/login')
